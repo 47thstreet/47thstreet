@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | The 47th Street</title>
+  <meta name="description" content="This page could not be found. Return to The 47th Street — NYC Diamond District Magazine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Franklin:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./dark-mode.css" />
+  <script src="./dark-mode.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,50 50,95 5,50' fill='%23222'/></svg>" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .four-oh-four {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Large faceted diamond SVG */
+    .lost-diamond {
+      width: 180px;
+      height: 200px;
+      margin-bottom: 2.5rem;
+      animation: diamondFloat 6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    }
+    @keyframes diamondFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-8px) rotate(1deg); }
+      50% { transform: translateY(-12px) rotate(0deg); }
+      75% { transform: translateY(-6px) rotate(-1deg); }
+    }
+
+    .four-oh-four h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+
+    .error-code {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .error-code .e-rule {
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .four-oh-four .subtext {
+      font-family: var(--elegant);
+      font-style: italic;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      font-weight: 300;
+      color: var(--med);
+      line-height: 1.55;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    .return-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.7rem 1.8rem;
+      text-decoration: none;
+      transition: background 160ms cubic-bezier(0.23, 1, 0.32, 1),
+                  transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .return-btn:hover {
+      background: var(--dark);
+    }
+    .return-btn:active {
+      transform: scale(0.97);
+    }
+    .return-btn .dm {
+      width: 8px;
+      height: 8px;
+    }
+
+    [data-theme="dark"] .return-btn {
+      background: #e8e6e1;
+      color: #141414;
+    }
+    [data-theme="dark"] .return-btn:hover {
+      background: #c8c5be;
+    }
+
+    /* Decorative scattered diamonds */
+    .deco-diamonds {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .deco-diamonds svg {
+      position: absolute;
+      fill: var(--light);
+      opacity: 0.35;
+    }
+    .dd-1 { width: 45px; top: 12%; left: 8%; transform: rotate(15deg); animation: float 20s ease-in-out infinite; }
+    .dd-2 { width: 22px; top: 22%; right: 12%; transform: rotate(-20deg); animation: float 26s ease-in-out infinite reverse; }
+    .dd-3 { width: 35px; bottom: 18%; left: 15%; transform: rotate(8deg); animation: float 22s ease-in-out infinite; }
+    .dd-4 { width: 18px; bottom: 28%; right: 18%; transform: rotate(40deg); animation: float 28s ease-in-out infinite reverse; }
+    .dd-5 { width: 28px; top: 55%; left: 5%; transform: rotate(-12deg); animation: float 24s ease-in-out infinite; opacity: 0.2; }
+    .dd-6 { width: 14px; top: 40%; right: 6%; transform: rotate(30deg); animation: float 30s ease-in-out infinite reverse; opacity: 0.25; }
+
+    /* Footer simplified */
+    .four-footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      color: var(--gray);
+      position: relative;
+      z-index: 1;
+      background: var(--white);
+    }
+    .four-footer a {
+      color: var(--med);
+      transition: color 0.15s;
+    }
+    .four-footer a:hover {
+      color: var(--ink);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lost-diamond { animation: none; }
+      .deco-diamonds svg { animation: none; }
+    }
+
+    @media (max-width: 768px) {
+      .lost-diamond { width: 140px; height: 156px; }
+      .deco-diamonds { display: none; }
+      .mast-left, .mast-right .btn-sub { display: none; }
+      .mast-top { grid-template-columns: 1fr auto; }
+      .mast-title { font-size: 2.2rem; }
+      .mast-pre, .mast-sub { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Simplified masthead -->
+  <header class="masthead" style="position:relative;">
+    <div class="wrap">
+      <div class="mast-top">
+        <div class="mast-left">
+          <span class="mast-date">404 — Page Not Found</span>
+        </div>
+        <div class="mast-center">
+          <div class="mast-pre">
+            <span class="mast-rule-left"></span>
+            <svg class="dm dm-sm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span>The</span>
+            <svg class="dm dm-sm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="mast-rule-right"></span>
+          </div>
+          <a href="/" class="mast-title">47th Street</a>
+          <div class="mast-sub">
+            <span class="mast-rule-left"></span>
+            New York City's Diamond District
+            <span class="mast-rule-right"></span>
+          </div>
+        </div>
+        <div class="mast-right">
+          <a href="/" class="btn-sub">Home</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 Content -->
+  <main class="four-oh-four">
+    <!-- Decorative scattered diamonds -->
+    <div class="deco-diamonds" aria-hidden="true">
+      <svg class="dd-1" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+      <svg class="dd-2" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+      <svg class="dd-3" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+      <svg class="dd-4" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+      <svg class="dd-5" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+      <svg class="dd-6" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+    </div>
+
+    <!-- Large faceted diamond illustration -->
+    <svg class="lost-diamond" viewBox="0 0 200 230" aria-label="Lost diamond illustration">
+      <defs>
+        <linearGradient id="f404-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--light)"/>
+          <stop offset="50%" stop-color="var(--rule)"/>
+          <stop offset="100%" stop-color="var(--light)"/>
+        </linearGradient>
+        <linearGradient id="f404-2" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="var(--rule)"/>
+          <stop offset="100%" stop-color="var(--light)"/>
+        </linearGradient>
+        <linearGradient id="f404-sparkle" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--white)" stop-opacity="0"/>
+          <stop offset="45%" stop-color="var(--white)" stop-opacity="0"/>
+          <stop offset="50%" stop-color="var(--white)" stop-opacity=".6"/>
+          <stop offset="55%" stop-color="var(--white)" stop-opacity="0"/>
+          <stop offset="100%" stop-color="var(--white)" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <!-- Crown -->
+      <polygon points="100,15 170,70 140,70 100,42 60,70 30,70" fill="url(#f404-1)" stroke="var(--silver)" stroke-width=".6"/>
+      <!-- Table -->
+      <polygon points="60,70 140,70 155,88 45,88" fill="url(#f404-2)" stroke="var(--silver)" stroke-width=".5"/>
+      <!-- Upper girdle -->
+      <polygon points="30,70 60,70 45,88 15,88" fill="var(--light)" stroke="var(--silver)" stroke-width=".3"/>
+      <polygon points="140,70 170,70 185,88 155,88" fill="var(--rule)" stroke="var(--silver)" stroke-width=".3"/>
+      <!-- Pavilion -->
+      <polygon points="15,88 45,88 100,215" fill="url(#f404-1)" stroke="var(--silver)" stroke-width=".3"/>
+      <polygon points="45,88 155,88 100,215" fill="var(--light)" stroke="var(--silver)" stroke-width=".3"/>
+      <polygon points="155,88 185,88 100,215" fill="var(--rule)" stroke="var(--silver)" stroke-width=".3"/>
+      <!-- Inner facet lines -->
+      <line x1="100" y1="15" x2="60" y2="70" stroke="var(--silver)" stroke-width=".3" opacity=".5"/>
+      <line x1="100" y1="15" x2="140" y2="70" stroke="var(--silver)" stroke-width=".3" opacity=".5"/>
+      <line x1="100" y1="42" x2="45" y2="88" stroke="var(--silver)" stroke-width=".25" opacity=".4"/>
+      <line x1="100" y1="42" x2="155" y2="88" stroke="var(--silver)" stroke-width=".25" opacity=".4"/>
+      <line x1="80" y1="88" x2="100" y2="215" stroke="var(--silver)" stroke-width=".2" opacity=".3"/>
+      <line x1="120" y1="88" x2="100" y2="215" stroke="var(--silver)" stroke-width=".2" opacity=".3"/>
+      <!-- Sparkle overlay -->
+      <polygon points="100,15 170,70 185,88 100,215 15,88 30,70" fill="url(#f404-sparkle)" class="sparkle-anim"/>
+      <!-- Question mark etched into the table facet -->
+      <text x="100" y="82" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="var(--silver)" opacity=".4">?</text>
+    </svg>
+
+    <div class="error-code">
+      <span class="e-rule"></span>
+      <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="var(--silver)"/></svg>
+      404
+      <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="var(--silver)"/></svg>
+      <span class="e-rule"></span>
+    </div>
+
+    <h1>This Stone Hasn't Been Found</h1>
+
+    <p class="subtext">
+      You've reached an uncharted corner of the block. Like a rough diamond still buried deep,
+      this page hasn't surfaced yet — or perhaps it was moved to a different booth.
+    </p>
+
+    <a href="/" class="return-btn">
+      <svg class="dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5" fill="currentColor"/></svg>
+      Return to 47th Street
+    </a>
+  </main>
+
+  <footer class="four-footer">
+    <span>&copy; 2026 The 47th Street. All rights reserved.</span>
+    &nbsp;
+    <svg class="dm dm-xs" viewBox="0 0 10 10" style="vertical-align:middle;"><polygon points="5,0 10,5 5,10 0,5" fill="var(--silver)"/></svg>
+    &nbsp;
+    <a href="/">Return home</a>
+  </footer>
+
+</body>
+</html>
