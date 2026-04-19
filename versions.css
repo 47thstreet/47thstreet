@@ -1,0 +1,372 @@
+/* ================================================
+   47th Street — Design Version Overrides
+   V1: Current (NYT Editorial) — no overrides needed
+   V2: Refined Authority — tighter type, warmer accents, stronger hierarchy
+   V3: Bold Broadsheet — high contrast, dramatic scale, ink-heavy
+   V4: Warm Minimal — softer palette, generous space, calm confidence
+   ================================================ */
+
+/* ---- VERSION SWITCHER UI ---- */
+.version-switcher {
+  position:fixed; bottom:1.5rem; left:1.5rem; z-index:9995;
+  font-family:var(--sans);
+}
+.version-switcher select {
+  appearance:none; -webkit-appearance:none;
+  background:var(--ink); color:var(--white);
+  border:1px solid rgba(255,255,255,.15);
+  padding:.5rem 2rem .5rem .75rem;
+  font-family:var(--sans); font-size:.65rem; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer; outline:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpolygon points='5,0 10,5 5,10 0,5' fill='%23999'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right .6rem center;
+  background-size:8px;
+  transition:all 200ms var(--ease-out);
+  box-shadow:0 2px 12px rgba(0,0,0,.15);
+}
+.version-switcher select:hover {
+  border-color:rgba(255,255,255,.3);
+}
+.version-switcher select:focus-visible {
+  outline:2px solid var(--ink);
+  outline-offset:2px;
+}
+[data-theme="dark"] .version-switcher select {
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.1);
+}
+
+/* ================================================
+   V2: REFINED AUTHORITY
+   Same structure, but warmer and more confident.
+   Think: The Economist meets Financial Times.
+   Subtle warm tint, tighter headline tracking,
+   stronger visual hierarchy through scale contrast.
+   ================================================ */
+
+[data-version="v2"] {
+  --paper:  #F8F6F1;
+  --cream:  #F0EDE4;
+  --rule:   #D8D4CA;
+  --accent: #8B7355;
+}
+
+/* Warmer paper feel */
+[data-version="v2"] body { background:var(--paper); }
+
+/* Tighter headline tracking, slightly larger */
+[data-version="v2"] .hero h1 {
+  font-size:clamp(2.6rem, 5vw, 3.8rem);
+  letter-spacing:-.035em;
+}
+
+/* Section heads get a warm underline */
+[data-version="v2"] .sec-head {
+  border-bottom:2px solid var(--ink);
+  padding-bottom:.6rem;
+}
+[data-version="v2"] .sec-head .dm { display:none; }
+
+/* Category labels — warm accent */
+[data-version="v2"] .cat {
+  color:var(--accent);
+  font-weight:800;
+}
+
+/* Cards — warm left border on hover */
+[data-version="v2"] .feat-card { border-left:3px solid transparent; transition:border-color 200ms var(--ease-out), transform 200ms var(--ease-out); }
+[data-version="v2"] .feat-card:hover { border-left-color:var(--accent); }
+
+/* Story rows — warm accent on hover number */
+[data-version="v2"] .story-row:hover .dm { fill:var(--accent); }
+
+/* Opinion cards — warm top accent */
+[data-version="v2"] .op-card::before { background:var(--accent); }
+
+/* Pull quote — larger, more commanding */
+[data-version="v2"] .quote-block blockquote {
+  font-size:clamp(1.5rem, 3vw, 2.4rem);
+  font-weight:400;
+  letter-spacing:-.01em;
+}
+
+/* Newsletter — warm accent button */
+[data-version="v2"] .nl-form button {
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+[data-version="v2"] .nl-form button:hover {
+  background:#7A6347;
+  border-color:#7A6347;
+}
+
+/* Pulse section — warmer background */
+[data-version="v2"] .pulse { background:var(--cream); }
+
+/* Footer — deep warm charcoal instead of pure white */
+[data-version="v2"] footer {
+  background:#1C1B18;
+  color:#D4D0C8;
+  border-top:1px solid #2A2825;
+}
+[data-version="v2"] .ft-logo span { color:#E8E4DC; }
+[data-version="v2"] .ft-logo .dm { fill:var(--accent); }
+[data-version="v2"] .ft-col h5 { color:var(--accent); border-bottom-color:#2A2825; }
+[data-version="v2"] .ft-col a { color:#9A968E; }
+[data-version="v2"] .ft-col a:hover { color:#E8E4DC; }
+[data-version="v2"] .ft-bottom { border-top-color:#2A2825; color:#6A665E; }
+[data-version="v2"] .ft-tag { color:#9A968E; }
+[data-version="v2"] .ft-tag .dm { fill:var(--accent); }
+
+/* Masthead — thin warm rule instead of double */
+[data-version="v2"] .masthead {
+  border-bottom:1px solid var(--rule);
+  box-shadow:0 1px 0 var(--cream);
+}
+
+/* Bylines — slightly warmer */
+[data-version="v2"] .byline { color:#8A857A; }
+
+/* Photo cards — warm border on hover */
+[data-version="v2"] .photo-card:hover .photo-img {
+  box-shadow:0 0 0 2px var(--accent);
+}
+
+/* ================================================
+   V3: BOLD BROADSHEET
+   High contrast, dramatic type scale, ink-heavy.
+   Think: old-school broadsheet newspaper authority.
+   Heavy rules, bold section breaks, no-nonsense.
+   ================================================ */
+
+[data-version="v3"] {
+  --paper: #FFFFF8;
+  --cream: #F5F5ED;
+  --rule:  #000;
+}
+
+/* Stark white paper */
+[data-version="v3"] body { background:var(--paper); }
+
+/* Headline: MASSIVE and tight */
+[data-version="v3"] .hero h1 {
+  font-size:clamp(2.8rem, 5.5vw, 4.2rem);
+  letter-spacing:-.04em;
+  line-height:1;
+}
+
+/* Masthead — bold double rule, larger title */
+[data-version="v3"] .masthead {
+  border-bottom:4px double var(--ink);
+}
+[data-version="v3"] .mast-title {
+  font-size:3.4rem;
+}
+
+/* Section heads — thick black bar */
+[data-version="v3"] .sec-head {
+  border-bottom:3px solid var(--ink);
+  padding-bottom:.5rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:1rem;
+}
+
+/* Category labels — reversed (white on black) */
+[data-version="v3"] .cat {
+  background:var(--ink);
+  color:var(--white);
+  padding:.15rem .5rem;
+  font-size:.5rem;
+  letter-spacing:.15em;
+}
+
+/* Cards — no border, strong shadow on hover */
+[data-version="v3"] .feat-card .card-image,
+[data-version="v3"] .feat-card .feat-img {
+  border:none;
+}
+[data-version="v3"] .feat-card:hover {
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+
+/* Story rows — bold left border on hover */
+[data-version="v3"] .story-row { border-bottom:2px solid var(--ink); }
+[data-version="v3"] .story-row:first-child { border-top:2px solid var(--ink); }
+[data-version="v3"] .story-row:hover { border-left:4px solid var(--ink); }
+
+/* Quote — enormous */
+[data-version="v3"] .quote-block blockquote {
+  font-size:clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight:600;
+  font-style:normal;
+  font-family:var(--serif);
+}
+
+/* Pulse — inverted (dark background) */
+[data-version="v3"] .pulse {
+  background:var(--ink);
+  color:var(--white);
+  border-color:var(--ink);
+}
+[data-version="v3"] .pulse .sec-head { color:var(--white); border-bottom-color:rgba(255,255,255,.2); }
+[data-version="v3"] .pulse .sec-head .dm { fill:var(--white); }
+[data-version="v3"] .pulse-val { color:var(--white); }
+[data-version="v3"] .pulse-label { color:rgba(255,255,255,.6); }
+[data-version="v3"] .pulse-delta.up { color:#4ADE80; }
+[data-version="v3"] .pulse-delta.down { color:#F87171; }
+[data-version="v3"] .pulse-card { border-right-color:rgba(255,255,255,.1); }
+[data-version="v3"] .pulse-footer { border-top-color:rgba(255,255,255,.1); color:rgba(255,255,255,.5); }
+
+/* Opinion cards — thick border, bold */
+[data-version="v3"] .op-card { border:2px solid var(--ink); }
+[data-version="v3"] .op-card::before { height:4px; }
+
+/* Newsletter — bold, inverted */
+[data-version="v3"] .nl-box { border:3px solid var(--ink); }
+
+/* Footer — inverted, heavy */
+[data-version="v3"] footer {
+  background:var(--ink); color:var(--white);
+  border-top:4px solid var(--ink);
+}
+[data-version="v3"] .ft-logo span { color:#fff; }
+[data-version="v3"] .ft-logo .dm { fill:#fff; }
+[data-version="v3"] .ft-col h5 { color:#fff; border-bottom-color:rgba(255,255,255,.15); }
+[data-version="v3"] .ft-col a { color:rgba(255,255,255,.6); }
+[data-version="v3"] .ft-col a:hover { color:#fff; }
+[data-version="v3"] .ft-bottom { border-top-color:rgba(255,255,255,.1); color:rgba(255,255,255,.4); }
+[data-version="v3"] .ft-tag { color:rgba(255,255,255,.6); }
+[data-version="v3"] .ft-tag .dm { fill:rgba(255,255,255,.6); }
+
+/* Diamond rule — thick */
+[data-version="v3"] .dm-rule::before,
+[data-version="v3"] .dm-rule::after { height:2px; background:var(--ink); }
+[data-version="v3"] .dm-rule .dm { fill:var(--ink); }
+
+/* ================================================
+   V4: WARM MINIMAL
+   Softer palette, generous space, calm confidence.
+   Think: Kinfolk, Cereal Magazine, Aesop.
+   Muted earth tones, massive whitespace, whisper-quiet.
+   ================================================ */
+
+[data-version="v4"] {
+  --paper: #F5F2ED;
+  --cream: #EDE9E1;
+  --ink:   #2C2C2A;
+  --dark:  #3E3E3B;
+  --med:   #6E6E69;
+  --gray:  #8E8E88;
+  --rule:  #D8D4CC;
+  --accent:#9E8B72;
+}
+
+[data-version="v4"] body {
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.8;
+}
+
+/* Masthead — minimal, no border */
+[data-version="v4"] .masthead {
+  border-bottom:none;
+  box-shadow:0 1px 0 var(--rule);
+}
+[data-version="v4"] .mast-title { font-weight:700; letter-spacing:-.01em; }
+[data-version="v4"] .mast-pre, [data-version="v4"] .mast-sub { opacity:.5; }
+
+/* Hero — more breathing room */
+[data-version="v4"] .hero { padding:3.5rem 0 3rem; }
+[data-version="v4"] .hero h1 {
+  font-weight:700;
+  letter-spacing:-.03em;
+}
+[data-version="v4"] .hero-sub {
+  font-size:clamp(1.1rem, 2.2vw, 1.5rem);
+  opacity:.6;
+}
+
+/* Section heads — minimal, left-aligned, lowercase */
+[data-version="v4"] .sec-head {
+  text-transform:none;
+  font-weight:500;
+  font-size:1.1rem;
+  border-bottom:1px solid var(--rule);
+  letter-spacing:0;
+}
+[data-version="v4"] .sec-head .dm { fill:var(--accent); }
+
+/* Category labels — earth tone */
+[data-version="v4"] .cat { color:var(--accent); font-weight:600; }
+
+/* Cards — borderless, minimal */
+[data-version="v4"] .feat-img { border:none; border-radius:2px; }
+[data-version="v4"] .feat-card:hover { transform:translateY(-2px); }
+
+/* Much more section spacing */
+[data-version="v4"] .features,
+[data-version="v4"] .more,
+[data-version="v4"] .opinion,
+[data-version="v4"] .photo-essay { padding:3.5rem 0; }
+
+/* Story rows — softer */
+[data-version="v4"] .story-row { border-bottom:1px solid var(--rule); }
+[data-version="v4"] .story-row:first-child { border-top:1px solid var(--rule); }
+[data-version="v4"] .story-row:hover { background:var(--cream); }
+
+/* Quote — delicate */
+[data-version="v4"] .quote-block {
+  background:var(--cream);
+  border:none;
+  padding:5rem 0;
+}
+[data-version="v4"] .quote-block blockquote {
+  font-weight:300;
+  color:var(--dark);
+  letter-spacing:-.01em;
+}
+
+/* Pulse — soft background */
+[data-version="v4"] .pulse { background:var(--cream); border-color:var(--rule); }
+[data-version="v4"] .pulse-card { border-right-color:var(--rule); }
+[data-version="v4"] .pulse-footer { border-top-color:var(--rule); }
+
+/* Diamond rule — barely there */
+[data-version="v4"] .dm-rule::before,
+[data-version="v4"] .dm-rule::after { background:var(--rule); }
+[data-version="v4"] .dm-rule .dm { fill:var(--rule); }
+
+/* Opinion cards — no border, soft shadow */
+[data-version="v4"] .op-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,.04); }
+[data-version="v4"] .op-card::before { background:var(--accent); }
+[data-version="v4"] .op-card:hover { box-shadow:0 4px 16px rgba(0,0,0,.07); }
+
+/* Newsletter — soft */
+[data-version="v4"] .nl-box {
+  border:1px solid var(--rule);
+  background:var(--cream);
+}
+[data-version="v4"] .nl-form button { background:var(--accent); border-color:var(--accent); color:#fff; }
+[data-version="v4"] .nl-form button:hover { background:#8A7862; border-color:#8A7862; }
+
+/* Footer — warm, soft contrast */
+[data-version="v4"] footer {
+  background:#2C2C2A;
+  color:#C8C4BC;
+  border-top:none;
+}
+[data-version="v4"] .ft-logo span { color:#E8E4DC; }
+[data-version="v4"] .ft-logo .dm { fill:var(--accent); }
+[data-version="v4"] .ft-col h5 { color:var(--accent); border-bottom-color:#3E3E3B; }
+[data-version="v4"] .ft-col a { color:#8A867E; }
+[data-version="v4"] .ft-col a:hover { color:#E8E4DC; }
+[data-version="v4"] .ft-bottom { border-top-color:#3E3E3B; color:#6A665E; }
+[data-version="v4"] .ft-tag { color:#8A867E; }
+[data-version="v4"] .ft-tag .dm { fill:var(--accent); }
+
+/* Ticker — softer */
+[data-version="v4"] .ticker { background:#2C2C2A; }
