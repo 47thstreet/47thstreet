@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./dark-mode.css" />
   <script src="./dark-mode.js"></script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,50 50,95 5,50' fill='%23C5A572'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,50 50,95 5,50' fill='%23222'/></svg>" />
 
   <!-- Structured Data (SEO) -->
   <script type="application/ld+json">
@@ -199,16 +199,25 @@
           <span class="mast-edition">Issue No. 037 &#9670; Spring</span>
         </div>
         <div class="mast-center">
-          <div class="mast-pre">The</div>
+          <div class="mast-pre">
+            <span class="mast-rule-left"></span>
+            <svg class="dm dm-sm" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span>The</span>
+            <svg class="dm dm-sm" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="mast-rule-right"></span>
+          </div>
           <a href="/" class="mast-title">47th Street</a>
-          <div class="mast-accent"></div>
-          <div class="mast-sub">New York City's Diamond District</div>
+          <div class="mast-sub">
+            <span class="mast-rule-left"></span>
+            New York City's Diamond District
+            <span class="mast-rule-right"></span>
+          </div>
         </div>
         <div class="mast-right">
-          <a href="#subscribe" class="btn-sub">Subscribe</a>
           <button class="search-btn" id="searchToggle" aria-label="Search">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
           </button>
+          <a href="#subscribe" class="btn-sub">Subscribe</a>
         </div>
       </div>
       <!-- Search overlay -->
@@ -221,17 +230,11 @@
     <nav class="nav-bar" aria-label="Main navigation">
       <div class="wrap nav-inner" id="navInner">
         <a href="#features">Features</a>
-        <span class="nav-diamond" aria-hidden="true">&#9670;</span>
         <a href="#market">Market</a>
-        <span class="nav-diamond" aria-hidden="true">&#9670;</span>
         <a href="#culture">Culture</a>
-        <span class="nav-diamond" aria-hidden="true">&#9670;</span>
         <a href="#people">People</a>
-        <span class="nav-diamond" aria-hidden="true">&#9670;</span>
         <a href="#opinion">Opinion</a>
-        <span class="nav-diamond" aria-hidden="true">&#9670;</span>
         <a href="#photo-essay">Photo</a>
-        <span class="nav-diamond" aria-hidden="true">&#9670;</span>
         <a href="#subscribe">The Brief</a>
       </div>
     </nav>
@@ -265,127 +268,127 @@
 
   <main id="main-content">
 
-  <!-- ============ HERO — CINEMATIC FULL-WIDTH ============ -->
+  <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-canvas">
-      <div class="hero-img fi">
-        <div class="hero-img-inner">
-          <svg class="hero-gem" viewBox="0 0 300 340" aria-label="Diamond illustration">
-            <defs>
-              <linearGradient id="facet1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#e8e8e8"/>
-                <stop offset="50%" stop-color="#f5f5f5"/>
-                <stop offset="100%" stop-color="#ddd"/>
-              </linearGradient>
-              <linearGradient id="facet2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#f0f0f0"/>
-                <stop offset="100%" stop-color="#e0e0e0"/>
-              </linearGradient>
-              <linearGradient id="facet3" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#eee"/>
-                <stop offset="100%" stop-color="#d8d8d8"/>
-              </linearGradient>
-              <linearGradient id="sparkle" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
-                <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
-                <stop offset="50%" stop-color="#fff" stop-opacity=".8"/>
-                <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
-                <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <!-- Crown -->
-            <polygon points="150,20 250,100 200,100 150,60 100,100 50,100" fill="url(#facet1)" stroke="#ccc" stroke-width=".5"/>
-            <!-- Table -->
-            <polygon points="100,100 200,100 220,120 80,120" fill="url(#facet2)" stroke="#ccc" stroke-width=".5"/>
-            <!-- Upper girdle left -->
-            <polygon points="50,100 100,100 80,120 30,120" fill="#e4e4e4" stroke="#ccc" stroke-width=".3"/>
-            <!-- Upper girdle right -->
-            <polygon points="200,100 250,100 270,120 220,120" fill="#ebebeb" stroke="#ccc" stroke-width=".3"/>
-            <!-- Pavilion left -->
-            <polygon points="30,120 80,120 150,310" fill="url(#facet3)" stroke="#ccc" stroke-width=".3"/>
-            <!-- Pavilion center -->
-            <polygon points="80,120 220,120 150,310" fill="#e8e8e8" stroke="#ccc" stroke-width=".3"/>
-            <!-- Pavilion right -->
-            <polygon points="220,120 270,120 150,310" fill="#e0e0e0" stroke="#ccc" stroke-width=".3"/>
-            <!-- Inner facet lines -->
-            <line x1="150" y1="20" x2="100" y2="100" stroke="#d0d0d0" stroke-width=".4"/>
-            <line x1="150" y1="20" x2="200" y2="100" stroke="#d0d0d0" stroke-width=".4"/>
-            <line x1="150" y1="60" x2="80" y2="120" stroke="#ddd" stroke-width=".3"/>
-            <line x1="150" y1="60" x2="220" y2="120" stroke="#ddd" stroke-width=".3"/>
-            <line x1="120" y1="120" x2="150" y2="310" stroke="#ddd" stroke-width=".2"/>
-            <line x1="180" y1="120" x2="150" y2="310" stroke="#ddd" stroke-width=".2"/>
-            <!-- Sparkle overlay -->
-            <polygon points="150,20 250,100 270,120 150,310 30,120 50,100" fill="url(#sparkle)" class="sparkle-anim"/>
-          </svg>
-          <!-- Shimmer light-sweep -->
-          <div class="hero-shimmer"></div>
-        </div>
-      </div>
-      <div class="hero-content fi" style="transition-delay:.15s">
-        <span class="cat">Cover Story</span>
-        <h1><a href="/article/the-last-master-cutter">The Last<br/>Master Cutter</a></h1>
-        <p class="hero-sub"><a href="/article/the-last-master-cutter">Inside the Workshop Where<br/>Rough Becomes Radiance</a></p>
-        <p class="hero-deck"><span class="drop-cap">A</span>t 78, Moshe Friedman still cuts stones by feel. His booth on the fourth floor of 15 West 47th has produced some of the most celebrated diamonds of the last half-century. But with no apprentice in sight, a tradition may vanish with his retirement.</p>
-        <div class="hero-meta">
-          <span class="byline">By Sarah Chen &#9670; April 15, 2026 &#9670; 12 min read</span>
-          <a href="/article/the-last-master-cutter" class="hero-cta">Read the Story</a>
-        </div>
-      </div>
-    </div>
-    <div class="champagne-rule"></div>
-  </section>
-
-  <!-- ============ LATEST STRIP ============ -->
-  <section class="latest-strip">
-    <div class="wrap">
-      <div class="latest-grid">
-        <article class="latest-item fi">
+    <div class="wrap hero-grid">
+      <!-- LEFT COLUMN -->
+      <div class="hero-left">
+        <article class="hl-item fi">
           <span class="cat">Market</span>
           <h3><a href="#0">Lab-Grown Disruption: How Synthetics Are Reshaping the District's Economics</a></h3>
           <p>Natural diamond dealers face their biggest existential threat as lab-grown stones claim 20% of the engagement ring market.</p>
           <span class="byline">James Okonkwo &#9670; 8 min read</span>
         </article>
-        <article class="latest-item fi" style="transition-delay:.08s">
+        <article class="hl-item fi" style="transition-delay:.1s">
           <span class="cat">Technology</span>
           <h3><a href="#0">Blockchain Provenance: Can Crypto Save Natural Diamonds?</a></h3>
           <p>A new wave of startups promises to track every stone from mine to market using distributed ledger technology.</p>
           <span class="byline">Priya Nair &#9670; 11 min read</span>
         </article>
-        <article class="latest-item fi" style="transition-delay:.16s">
+      </div>
+
+      <!-- CENTER: COVER -->
+      <div class="hero-center">
+        <div class="hero-img fi">
+          <div class="hero-img-inner">
+            <svg class="hero-gem" viewBox="0 0 300 340" aria-label="Diamond illustration">
+              <defs>
+                <linearGradient id="facet1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#e8e8e8"/>
+                  <stop offset="50%" stop-color="#f5f5f5"/>
+                  <stop offset="100%" stop-color="#ddd"/>
+                </linearGradient>
+                <linearGradient id="facet2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f0f0f0"/>
+                  <stop offset="100%" stop-color="#e0e0e0"/>
+                </linearGradient>
+                <linearGradient id="facet3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#eee"/>
+                  <stop offset="100%" stop-color="#d8d8d8"/>
+                </linearGradient>
+                <linearGradient id="sparkle" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+                  <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#fff" stop-opacity=".8"/>
+                  <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Crown -->
+              <polygon points="150,20 250,100 200,100 150,60 100,100 50,100" fill="url(#facet1)" stroke="#ccc" stroke-width=".5"/>
+              <!-- Table -->
+              <polygon points="100,100 200,100 220,120 80,120" fill="url(#facet2)" stroke="#ccc" stroke-width=".5"/>
+              <!-- Upper girdle left -->
+              <polygon points="50,100 100,100 80,120 30,120" fill="#e4e4e4" stroke="#ccc" stroke-width=".3"/>
+              <!-- Upper girdle right -->
+              <polygon points="200,100 250,100 270,120 220,120" fill="#ebebeb" stroke="#ccc" stroke-width=".3"/>
+              <!-- Pavilion left -->
+              <polygon points="30,120 80,120 150,310" fill="url(#facet3)" stroke="#ccc" stroke-width=".3"/>
+              <!-- Pavilion center -->
+              <polygon points="80,120 220,120 150,310" fill="#e8e8e8" stroke="#ccc" stroke-width=".3"/>
+              <!-- Pavilion right -->
+              <polygon points="220,120 270,120 150,310" fill="#e0e0e0" stroke="#ccc" stroke-width=".3"/>
+              <!-- Inner facet lines -->
+              <line x1="150" y1="20" x2="100" y2="100" stroke="#d0d0d0" stroke-width=".4"/>
+              <line x1="150" y1="20" x2="200" y2="100" stroke="#d0d0d0" stroke-width=".4"/>
+              <line x1="150" y1="60" x2="80" y2="120" stroke="#ddd" stroke-width=".3"/>
+              <line x1="150" y1="60" x2="220" y2="120" stroke="#ddd" stroke-width=".3"/>
+              <line x1="120" y1="120" x2="150" y2="310" stroke="#ddd" stroke-width=".2"/>
+              <line x1="180" y1="120" x2="150" y2="310" stroke="#ddd" stroke-width=".2"/>
+              <!-- Sparkle overlay -->
+              <polygon points="150,20 250,100 270,120 150,310 30,120 50,100" fill="url(#sparkle)" class="sparkle-anim"/>
+            </svg>
+          </div>
+        </div>
+        <div class="hero-cover-text fi" style="transition-delay:.15s">
+          <span class="cat">Cover Story</span>
+          <h1><a href="/article/the-last-master-cutter">The Last<br/>Master Cutter</a></h1>
+          <p class="hero-sub"><a href="/article/the-last-master-cutter">Inside the Workshop Where<br/>Rough Becomes Radiance</a></p>
+          <div class="hero-rule"><span></span><svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg><span></span></div>
+          <p class="hero-deck"><span class="drop-cap">A</span>t 78, Moshe Friedman still cuts stones by feel. His booth on the fourth floor of 15 West 47th has produced some of the most celebrated diamonds of the last half-century. But with no apprentice in sight, a tradition may vanish with his retirement.</p>
+          <span class="byline">By Sarah Chen &#9670; April 15, 2026 &#9670; 12 min read</span>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="hero-right">
+        <article class="hl-item fi" style="transition-delay:.2s">
           <span class="cat">Culture</span>
           <h3><a href="#0">The Handshake Economy: Trust, Honor, and the Mazal That Seals Millions</a></h3>
           <p>In an age of smart contracts, the Diamond District still runs on a centuries-old protocol: your word and a handshake.</p>
           <span class="byline">Rachel Goldstein &#9670; 6 min read</span>
         </article>
-        <article class="latest-item fi" style="transition-delay:.24s">
+        <article class="hl-item fi" style="transition-delay:.3s">
           <span class="cat">People</span>
           <h3><a href="#0">The Security Guard Who Knows Everyone: 30 Years at the Exchange</a></h3>
           <span class="byline">David Kim &#9670; 9 min read</span>
-          <!-- Most Read -->
-          <div class="most-read">
-            <h4 class="most-read-head">
-              <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-              Most Read
-            </h4>
-            <ol>
-              <li><a href="#0">Diamond Dogs: Social Media Jewelers</a></li>
-              <li><a href="#0">The Vault Beneath the Sidewalk</a></li>
-              <li><a href="#0">Why a $30 Loupe Still Rules</a></li>
-            </ol>
-          </div>
         </article>
+        <!-- Most Read sidebar -->
+        <div class="most-read fi" style="transition-delay:.35s">
+          <h4 class="most-read-head">
+            <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            Most Read
+          </h4>
+          <ol>
+            <li><a href="#0">Diamond Dogs: Social Media Jewelers</a></li>
+            <li><a href="#0">The Vault Beneath the Sidewalk</a></li>
+            <li><a href="#0">Why a $30 Loupe Still Rules</a></li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ DIAMOND RULE ============ -->
+  <div class="dm-rule"><svg class="dm dm-md" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></div>
+
   <!-- ============ MARKET PULSE ============ -->
   <section class="pulse" id="market">
-    <div class="champagne-rule"></div>
     <div class="wrap">
-      <h2 class="sec-head fi">
+      <h2 class="sec-head">
         <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
         Diamond District Pulse
-        <span class="sec-head-line"></span>
+        <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
       </h2>
       <div class="pulse-row">
         <div class="pulse-card fi">
@@ -415,16 +418,18 @@
         <span>&#9670; Est. 1941</span>
       </div>
     </div>
-    <div class="champagne-rule"></div>
   </section>
+
+  <!-- ============ DIAMOND RULE ============ -->
+  <div class="dm-rule"><svg class="dm dm-md" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></div>
 
   <!-- ============ FEATURES ============ -->
   <section class="features" id="features">
     <div class="wrap">
-      <h2 class="sec-head fi">
+      <h2 class="sec-head">
         <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
         This Week on 47th
-        <span class="sec-head-line"></span>
+        <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
       </h2>
       <div class="feat-grid">
         <article class="feat-card fi">
@@ -472,12 +477,11 @@
 
   <!-- ============ PHOTO ESSAY ============ -->
   <section class="photo-essay" id="photo-essay">
-    <div class="champagne-rule"></div>
     <div class="wrap">
-      <h2 class="sec-head fi">
+      <h2 class="sec-head">
         <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
         Photo Essay
-        <span class="sec-head-line"></span>
+        <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
       </h2>
       <div class="photo-grid">
         <div class="photo-card photo-wide fi">
@@ -492,43 +496,43 @@
             <span class="byline">Photographs by Ana Torres &#9670; 24 images</span>
           </div>
         </div>
-        <div class="photo-stack">
-          <div class="photo-card fi" style="transition-delay:.1s">
-            <div class="photo-img grad-5">
-              <div class="photo-overlay">
-                <svg viewBox="0 0 40 40" class="photo-dm-sm"><polygon points="20,3 37,20 20,37 3,20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/></svg>
-              </div>
-            </div>
-            <div class="photo-caption">
-              <h3><a href="#0">The Tools of the Trade</a></h3>
-              <span class="byline">12 images</span>
+        <div class="photo-card fi" style="transition-delay:.1s">
+          <div class="photo-img grad-5">
+            <div class="photo-overlay">
+              <svg viewBox="0 0 40 40" class="photo-dm-sm"><polygon points="20,3 37,20 20,37 3,20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/></svg>
             </div>
           </div>
-          <div class="photo-card fi" style="transition-delay:.15s">
-            <div class="photo-img grad-6">
-              <div class="photo-overlay">
-                <svg viewBox="0 0 40 40" class="photo-dm-sm"><polygon points="20,3 37,20 20,37 3,20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/></svg>
-              </div>
+          <div class="photo-caption">
+            <h3><a href="#0">The Tools of the Trade</a></h3>
+            <span class="byline">12 images</span>
+          </div>
+        </div>
+        <div class="photo-card fi" style="transition-delay:.15s">
+          <div class="photo-img grad-6">
+            <div class="photo-overlay">
+              <svg viewBox="0 0 40 40" class="photo-dm-sm"><polygon points="20,3 37,20 20,37 3,20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/></svg>
             </div>
-            <div class="photo-caption">
-              <h3><a href="#0">After Hours on 47th</a></h3>
-              <span class="byline">18 images</span>
-            </div>
+          </div>
+          <div class="photo-caption">
+            <h3><a href="#0">After Hours on 47th</a></h3>
+            <span class="byline">18 images</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ DIAMOND RULE ============ -->
+  <div class="dm-rule"><svg class="dm dm-md" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></div>
+
   <!-- ============ MORE STORIES ============ -->
   <section class="more" id="culture">
-    <div class="champagne-rule"></div>
     <div class="wrap more-layout">
       <div class="more-main">
-        <h2 class="sec-head fi">
+        <h2 class="sec-head">
           <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
           From the Block
-          <span class="sec-head-line"></span>
+          <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
         </h2>
         <div class="story-list">
           <a href="#0" class="story-row fi">
@@ -616,26 +620,19 @@
   <!-- ============ EDITORIAL QUOTE ============ -->
   <section class="quote-block" id="people">
     <div class="wrap fi">
-      <svg class="quote-gem" viewBox="0 0 200 220" aria-label="Diamond">
+      <svg class="quote-gem" viewBox="0 0 100 110" aria-label="Diamond">
         <defs>
           <linearGradient id="qg1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#C5A572" stop-opacity=".3"/><stop offset="100%" stop-color="#C5A572" stop-opacity=".1"/>
-          </linearGradient>
-          <linearGradient id="qg2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#C5A572" stop-opacity=".15"/><stop offset="100%" stop-color="#C5A572" stop-opacity=".05"/>
+            <stop offset="0%" stop-color="#d5d5d5"/><stop offset="100%" stop-color="#bbb"/>
           </linearGradient>
         </defs>
-        <polygon points="100,10 180,70 156,190 44,190 20,70" fill="url(#qg2)" stroke="url(#qg1)" stroke-width="1"/>
-        <line x1="100" y1="10" x2="44" y2="190" stroke="#C5A572" stroke-opacity=".2" stroke-width=".5"/>
-        <line x1="100" y1="10" x2="156" y2="190" stroke="#C5A572" stroke-opacity=".2" stroke-width=".5"/>
-        <line x1="20" y1="70" x2="180" y2="70" stroke="#C5A572" stroke-opacity=".2" stroke-width=".5"/>
-        <line x1="20" y1="70" x2="156" y2="190" stroke="#C5A572" stroke-opacity=".12" stroke-width=".3"/>
-        <line x1="180" y1="70" x2="44" y2="190" stroke="#C5A572" stroke-opacity=".12" stroke-width=".3"/>
-        <line x1="100" y1="10" x2="100" y2="190" stroke="#C5A572" stroke-opacity=".1" stroke-width=".3" stroke-dasharray="3,3"/>
-        <!-- Internal facets -->
-        <polygon points="60,70 140,70 156,190 44,190" fill="url(#qg2)" stroke="none"/>
-        <line x1="60" y1="70" x2="100" y2="190" stroke="#C5A572" stroke-opacity=".1" stroke-width=".3"/>
-        <line x1="140" y1="70" x2="100" y2="190" stroke="#C5A572" stroke-opacity=".1" stroke-width=".3"/>
+        <polygon points="50,5 90,35 78,95 22,95 10,35" fill="none" stroke="url(#qg1)" stroke-width=".8"/>
+        <line x1="50" y1="5" x2="22" y2="95" stroke="#ccc" stroke-width=".3"/>
+        <line x1="50" y1="5" x2="78" y2="95" stroke="#ccc" stroke-width=".3"/>
+        <line x1="10" y1="35" x2="90" y2="35" stroke="#ccc" stroke-width=".3"/>
+        <line x1="10" y1="35" x2="78" y2="95" stroke="#ddd" stroke-width=".2"/>
+        <line x1="90" y1="35" x2="22" y2="95" stroke="#ddd" stroke-width=".2"/>
+        <line x1="50" y1="5" x2="50" y2="95" stroke="#ddd" stroke-width=".2" stroke-dasharray="2,2"/>
       </svg>
       <blockquote>&ldquo;47th Street isn't just an address &mdash; it's a covenant. Every stone that changes hands here carries the weight of trust built over generations.&rdquo;</blockquote>
       <cite>
@@ -650,12 +647,11 @@
 
   <!-- ============ OPINION ============ -->
   <section class="opinion" id="opinion">
-    <div class="champagne-rule"></div>
     <div class="wrap">
-      <h2 class="sec-head fi">
+      <h2 class="sec-head">
         <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
         Opinion
-        <span class="sec-head-line"></span>
+        <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
       </h2>
       <div class="op-grid">
         <article class="op-card fi">
@@ -694,10 +690,10 @@
     <div class="wrap">
       <div class="nl-box fi">
         <svg class="nl-gem" viewBox="0 0 80 90" aria-label="Diamond">
-          <polygon points="40,5 75,30 65,78 15,78 5,30" fill="none" stroke="#C5A572" stroke-opacity=".4" stroke-width=".8"/>
-          <line x1="40" y1="5" x2="15" y2="78" stroke="#C5A572" stroke-opacity=".2" stroke-width=".3"/>
-          <line x1="40" y1="5" x2="65" y2="78" stroke="#C5A572" stroke-opacity=".2" stroke-width=".3"/>
-          <line x1="5" y1="30" x2="75" y2="30" stroke="#C5A572" stroke-opacity=".2" stroke-width=".3"/>
+          <polygon points="40,5 75,30 65,78 15,78 5,30" fill="none" stroke="#bbb" stroke-width=".6"/>
+          <line x1="40" y1="5" x2="15" y2="78" stroke="#ccc" stroke-width=".2"/>
+          <line x1="40" y1="5" x2="65" y2="78" stroke="#ccc" stroke-width=".2"/>
+          <line x1="5" y1="30" x2="75" y2="30" stroke="#ccc" stroke-width=".2"/>
         </svg>
         <h3>The 47th Street Brief</h3>
         <p>Weekly market intelligence, insider stories, and district updates delivered every Tuesday to 12,000+ industry professionals.</p>
@@ -725,7 +721,6 @@
         <span>The 47th Street</span>
         <svg class="dm dm-sm" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
       </div>
-      <p class="ft-tagline">Where Every Stone Has a Story</p>
       <div class="ft-grid">
         <div class="ft-col">
           <h5>Sections</h5>
@@ -759,6 +754,11 @@
       </div>
       <div class="ft-bottom">
         <span>&copy; 2026 The 47th Street. All rights reserved. New York, NY.</span>
+        <span class="ft-tag">
+          <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+          Where Every Stone Has a Story
+          <svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+        </span>
       </div>
     </div>
   </footer>
@@ -767,6 +767,16 @@
   <button class="btt" id="btt" aria-label="Back to top">
     <svg viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
   </button>
+
+  <!-- Background floating diamonds -->
+  <div class="bg-gems" aria-hidden="true">
+    <svg class="bg-g bg-g1" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+    <svg class="bg-g bg-g2" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+    <svg class="bg-g bg-g3" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+    <svg class="bg-g bg-g4" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+    <svg class="bg-g bg-g5" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+    <svg class="bg-g bg-g6" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+  </div>
 
   <script type="module" src="./frontend.js"></script>
 </body>
