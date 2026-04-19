@@ -194,3 +194,62 @@ if (heroImg && !prefersReduced) {
     });
   }
 }
+
+// ---- Pulse counter animation ----
+// Animate numbers counting up when they enter the viewport
+const pulseObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const vals = e.target.querySelectorAll(".pulse-val");
+        vals.forEach((val, i) => {
+          if (prefersReduced) return;
+          const text = val.textContent.trim();
+          const numMatch = text.match(/[\d,]+/);
+          if (!numMatch) {
+            val.classList.add("counting");
+            return;
+          }
+          const target = parseInt(numMatch[0].replace(/,/g, ""), 10);
+          const prefix = text.slice(0, text.indexOf(numMatch[0]));
+          const suffix = text.slice(text.indexOf(numMatch[0]) + numMatch[0].length);
+          const duration = 800;
+          const start = performance.now();
+          const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+          setTimeout(() => {
+            function tick(now) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const current = Math.round(easeOut(progress) * target);
+              val.textContent = prefix + current.toLocaleString() + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            val.classList.add("counting");
+          }, i * 60);
+        });
+        pulseObs.unobserve(e.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+const pulseRow = document.querySelector(".pulse-row");
+if (pulseRow) pulseObs.observe(pulseRow);
+
+// ---- Hero parallax on scroll ----
+if (!prefersReduced && heroImg) {
+  const heroInner = heroImg.querySelector(".hero-img-inner");
+  if (heroInner) {
+    window.addEventListener("scroll", () => {
+      const rect = heroImg.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < viewH) {
+        const progress = (viewH - rect.top) / (viewH + rect.height);
+        const shift = (progress - 0.5) * 20;
+        heroInner.style.transform = `translateY(${shift}px) scale(1.03)`;
+      }
+    }, { passive: true });
+  }
+}
