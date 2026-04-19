@@ -4,123 +4,202 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>47th Street — NYC Diamond District Magazine</title>
-  <meta name="description" content="The definitive voice of New York City's Diamond District." />
+  <meta name="description" content="The definitive voice of New York City's Diamond District. Culture, commerce, and craft from the heart of 47th Street." />
+  <meta property="og:title" content="The 47th Street — NYC Diamond District Magazine" />
+  <meta property="og:description" content="Where Every Stone Has a Story. Culture, commerce, and craft from the world's most concentrated gem market." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Franklin:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Libre+Franklin:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,50 50,95 5,50' fill='%23222' stroke='%23222'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,50 50,95 5,50' fill='%23222'/></svg>" />
 </head>
 <body>
+
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progressBar"></div>
 
   <!-- ============ TICKER ============ -->
   <div class="ticker">
     <div class="ticker-track">
       <span>&#9670; Gold: $2,391.40/oz</span>
       <span>&#9670; Platinum: $1,012/oz</span>
-      <span>&#9670; 1ct D/VVS1: $15,200</span>
+      <span>&#9670; 1ct D/VVS1 Round: $15,200</span>
       <span>&#9670; Rapaport Updated Apr 18</span>
       <span>&#9670; Lab-Grown Index: &#8722;3.2% MTD</span>
       <span>&#9670; GIA Certs This Week: 4,217</span>
       <span>&#9670; Booth Occupancy: 87%</span>
-      <span>&#9670; NYCJDA Gala: May 12</span>
+      <span>&#9670; NYCJDA Annual Gala: May 12</span>
       <span>&#9670; Gold: $2,391.40/oz</span>
       <span>&#9670; Platinum: $1,012/oz</span>
-      <span>&#9670; 1ct D/VVS1: $15,200</span>
+      <span>&#9670; 1ct D/VVS1 Round: $15,200</span>
       <span>&#9670; Rapaport Updated Apr 18</span>
       <span>&#9670; Lab-Grown Index: &#8722;3.2% MTD</span>
       <span>&#9670; GIA Certs This Week: 4,217</span>
       <span>&#9670; Booth Occupancy: 87%</span>
-      <span>&#9670; NYCJDA Gala: May 12</span>
+      <span>&#9670; NYCJDA Annual Gala: May 12</span>
     </div>
   </div>
 
   <!-- ============ MASTHEAD ============ -->
-  <header class="masthead">
+  <header class="masthead" id="top">
     <div class="wrap">
       <div class="mast-top">
-        <div class="mast-left">Saturday, April 19, 2026</div>
+        <div class="mast-left">
+          <span class="mast-date">Saturday, April 19, 2026</span>
+          <span class="mast-edition">Issue No. 037 &#9670; Spring</span>
+        </div>
         <div class="mast-center">
           <div class="mast-pre">
+            <span class="mast-rule-left"></span>
             <svg class="dm dm-sm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
             <span>The</span>
             <svg class="dm dm-sm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="mast-rule-right"></span>
           </div>
           <a href="/" class="mast-title">47th Street</a>
-          <div class="mast-sub">New York City's Diamond District</div>
+          <div class="mast-sub">
+            <span class="mast-rule-left"></span>
+            New York City's Diamond District
+            <span class="mast-rule-right"></span>
+          </div>
         </div>
         <div class="mast-right">
+          <button class="search-btn" id="searchToggle" aria-label="Search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+          </button>
           <a href="#subscribe" class="btn-sub">Subscribe</a>
         </div>
       </div>
+      <!-- Search overlay -->
+      <div class="search-box" id="searchBox">
+        <input type="text" placeholder="Search 47th Street..." id="searchInput" />
+        <button class="search-close" id="searchClose">&times;</button>
+      </div>
     </div>
     <nav class="nav-bar">
-      <div class="wrap nav-inner">
+      <div class="wrap nav-inner" id="navInner">
         <a href="#features">Features</a>
         <a href="#market">Market</a>
         <a href="#culture">Culture</a>
         <a href="#people">People</a>
         <a href="#opinion">Opinion</a>
+        <a href="#photo-essay">Photo</a>
         <a href="#subscribe">The Brief</a>
       </div>
     </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="wrap hero-grid">
-      <!-- LEFT COLUMN: trend pieces -->
+      <!-- LEFT COLUMN -->
       <div class="hero-left">
         <article class="hl-item fi">
           <span class="cat">Market</span>
           <h3><a href="#">Lab-Grown Disruption: How Synthetics Are Reshaping the District's Economics</a></h3>
           <p>Natural diamond dealers face their biggest existential threat as lab-grown stones claim 20% of the engagement ring market.</p>
-          <span class="byline">James Okonkwo &#9670; 8 min</span>
+          <span class="byline">James Okonkwo &#9670; 8 min read</span>
         </article>
-        <article class="hl-item fi">
+        <article class="hl-item fi" style="transition-delay:.1s">
           <span class="cat">Technology</span>
           <h3><a href="#">Blockchain Provenance: Can Crypto Save Natural Diamonds?</a></h3>
-          <span class="byline">Priya Nair &#9670; 11 min</span>
+          <p>A new wave of startups promises to track every stone from mine to market using distributed ledger technology.</p>
+          <span class="byline">Priya Nair &#9670; 11 min read</span>
         </article>
       </div>
 
       <!-- CENTER: COVER -->
-      <div class="hero-center fi">
-        <div class="hero-img">
-          <!-- Diamond illustration placeholder -->
-          <svg class="hero-gem" viewBox="0 0 200 200">
-            <polygon points="100,10 180,70 155,180 45,180 20,70" fill="none" stroke="#ccc" stroke-width="1"/>
-            <line x1="100" y1="10" x2="45" y2="180" stroke="#ddd" stroke-width="0.5"/>
-            <line x1="100" y1="10" x2="155" y2="180" stroke="#ddd" stroke-width="0.5"/>
-            <line x1="20" y1="70" x2="180" y2="70" stroke="#ddd" stroke-width="0.5"/>
-            <line x1="20" y1="70" x2="155" y2="180" stroke="#ddd" stroke-width="0.3"/>
-            <line x1="180" y1="70" x2="45" y2="180" stroke="#ddd" stroke-width="0.3"/>
-            <line x1="100" y1="10" x2="100" y2="180" stroke="#ddd" stroke-width="0.3" stroke-dasharray="3,3"/>
-            <line x1="60" y1="70" x2="75" y2="180" stroke="#eee" stroke-width="0.3"/>
-            <line x1="140" y1="70" x2="125" y2="180" stroke="#eee" stroke-width="0.3"/>
-          </svg>
+      <div class="hero-center">
+        <div class="hero-img fi">
+          <div class="hero-img-inner">
+            <svg class="hero-gem" viewBox="0 0 300 340" aria-label="Diamond illustration">
+              <defs>
+                <linearGradient id="facet1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#e8e8e8"/>
+                  <stop offset="50%" stop-color="#f5f5f5"/>
+                  <stop offset="100%" stop-color="#ddd"/>
+                </linearGradient>
+                <linearGradient id="facet2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f0f0f0"/>
+                  <stop offset="100%" stop-color="#e0e0e0"/>
+                </linearGradient>
+                <linearGradient id="facet3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#eee"/>
+                  <stop offset="100%" stop-color="#d8d8d8"/>
+                </linearGradient>
+                <linearGradient id="sparkle" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+                  <stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#fff" stop-opacity=".8"/>
+                  <stop offset="55%" stop-color="#fff" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Crown -->
+              <polygon points="150,20 250,100 200,100 150,60 100,100 50,100" fill="url(#facet1)" stroke="#ccc" stroke-width=".5"/>
+              <!-- Table -->
+              <polygon points="100,100 200,100 220,120 80,120" fill="url(#facet2)" stroke="#ccc" stroke-width=".5"/>
+              <!-- Upper girdle left -->
+              <polygon points="50,100 100,100 80,120 30,120" fill="#e4e4e4" stroke="#ccc" stroke-width=".3"/>
+              <!-- Upper girdle right -->
+              <polygon points="200,100 250,100 270,120 220,120" fill="#ebebeb" stroke="#ccc" stroke-width=".3"/>
+              <!-- Pavilion left -->
+              <polygon points="30,120 80,120 150,310" fill="url(#facet3)" stroke="#ccc" stroke-width=".3"/>
+              <!-- Pavilion center -->
+              <polygon points="80,120 220,120 150,310" fill="#e8e8e8" stroke="#ccc" stroke-width=".3"/>
+              <!-- Pavilion right -->
+              <polygon points="220,120 270,120 150,310" fill="#e0e0e0" stroke="#ccc" stroke-width=".3"/>
+              <!-- Inner facet lines -->
+              <line x1="150" y1="20" x2="100" y2="100" stroke="#d0d0d0" stroke-width=".4"/>
+              <line x1="150" y1="20" x2="200" y2="100" stroke="#d0d0d0" stroke-width=".4"/>
+              <line x1="150" y1="60" x2="80" y2="120" stroke="#ddd" stroke-width=".3"/>
+              <line x1="150" y1="60" x2="220" y2="120" stroke="#ddd" stroke-width=".3"/>
+              <line x1="120" y1="120" x2="150" y2="310" stroke="#ddd" stroke-width=".2"/>
+              <line x1="180" y1="120" x2="150" y2="310" stroke="#ddd" stroke-width=".2"/>
+              <!-- Sparkle overlay -->
+              <polygon points="150,20 250,100 270,120 150,310 30,120 50,100" fill="url(#sparkle)" class="sparkle-anim"/>
+            </svg>
+          </div>
         </div>
-        <div class="hero-cover-text">
+        <div class="hero-cover-text fi" style="transition-delay:.15s">
           <span class="cat">Cover Story</span>
           <h1><a href="#">The Last<br/>Master Cutter</a></h1>
-          <p class="hero-deck">At 78, Moshe Friedman still cuts stones by feel. His booth on the fourth floor of 15 West 47th has produced some of the most celebrated diamonds of the last half-century. But with no apprentice in sight, a tradition may vanish with his retirement.</p>
-          <span class="byline">Sarah Chen &#9670; April 15, 2026 &#9670; 12 min</span>
+          <h2 class="hero-sub">Inside the Workshop Where<br/>Rough Becomes Radiance</h2>
+          <div class="hero-rule"><span></span><svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg><span></span></div>
+          <p class="hero-deck"><span class="drop-cap">A</span>t 78, Moshe Friedman still cuts stones by feel. His booth on the fourth floor of 15 West 47th has produced some of the most celebrated diamonds of the last half-century. But with no apprentice in sight, a tradition may vanish with his retirement.</p>
+          <span class="byline">By Sarah Chen &#9670; April 15, 2026 &#9670; 12 min read</span>
         </div>
       </div>
 
       <!-- RIGHT COLUMN -->
       <div class="hero-right">
-        <article class="hl-item fi">
+        <article class="hl-item fi" style="transition-delay:.2s">
           <span class="cat">Culture</span>
           <h3><a href="#">The Handshake Economy: Trust, Honor, and the Mazal That Seals Millions</a></h3>
           <p>In an age of smart contracts, the Diamond District still runs on a centuries-old protocol: your word and a handshake.</p>
-          <span class="byline">Rachel Goldstein &#9670; 6 min</span>
+          <span class="byline">Rachel Goldstein &#9670; 6 min read</span>
         </article>
-        <article class="hl-item fi">
+        <article class="hl-item fi" style="transition-delay:.3s">
           <span class="cat">People</span>
           <h3><a href="#">The Security Guard Who Knows Everyone: 30 Years at the Exchange</a></h3>
-          <span class="byline">David Kim &#9670; 9 min</span>
+          <span class="byline">David Kim &#9670; 9 min read</span>
         </article>
+        <!-- Most Read sidebar -->
+        <div class="most-read fi" style="transition-delay:.35s">
+          <h4 class="most-read-head">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            Most Read
+          </h4>
+          <ol>
+            <li><a href="#">Diamond Dogs: Social Media Jewelers</a></li>
+            <li><a href="#">The Vault Beneath the Sidewalk</a></li>
+            <li><a href="#">Why a $30 Loupe Still Rules</a></li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -138,25 +217,29 @@
       </h2>
       <div class="pulse-row">
         <div class="pulse-card fi">
-          <div class="pulse-val">$2,391</div>
+          <div class="pulse-val" data-count="2391">$2,391</div>
           <div class="pulse-label">Gold Spot (USD/oz)</div>
+          <div class="pulse-delta up">&#9650; 1.2%</div>
         </div>
-        <div class="pulse-card fi">
+        <div class="pulse-card fi" style="transition-delay:.08s">
           <div class="pulse-val">&#8722;3.2%</div>
           <div class="pulse-label">Lab-Grown Index MTD</div>
+          <div class="pulse-delta down">&#9660; 3.2%</div>
         </div>
-        <div class="pulse-card fi">
+        <div class="pulse-card fi" style="transition-delay:.16s">
           <div class="pulse-val">4,217</div>
           <div class="pulse-label">GIA Certs This Week</div>
+          <div class="pulse-delta up">&#9650; 8.4%</div>
         </div>
-        <div class="pulse-card fi">
+        <div class="pulse-card fi" style="transition-delay:.24s">
           <div class="pulse-val">87%</div>
           <div class="pulse-label">Booth Occupancy</div>
+          <div class="pulse-delta flat">&#9644; 0.0%</div>
         </div>
       </div>
       <div class="pulse-footer">
-        <span>&#9670; 2,600+ businesses</span>
-        <span>&#9670; $24B annual volume</span>
+        <span>&#9670; 2,600+ businesses on one block</span>
+        <span>&#9670; $24B annual trade volume</span>
         <span>&#9670; Est. 1941</span>
       </div>
     </div>
@@ -175,122 +258,214 @@
       </h2>
       <div class="feat-grid">
         <article class="feat-card fi">
-          <div class="feat-img">
-            <svg class="feat-gem" viewBox="0 0 80 80">
-              <polygon points="40,5 75,30 65,72 15,72 5,30" fill="none" stroke="#ccc" stroke-width="0.8"/>
-              <line x1="40" y1="5" x2="15" y2="72" stroke="#ddd" stroke-width="0.4"/>
-              <line x1="40" y1="5" x2="65" y2="72" stroke="#ddd" stroke-width="0.4"/>
-              <line x1="5" y1="30" x2="75" y2="30" stroke="#ddd" stroke-width="0.4"/>
-            </svg>
+          <div class="feat-img grad-1">
+            <div class="feat-overlay">
+              <svg viewBox="0 0 60 60" class="feat-dm"><polygon points="30,5 55,22 47,52 13,52 5,22" fill="none" stroke="rgba(255,255,255,.4)" stroke-width=".6"/><line x1="30" y1="5" x2="13" y2="52" stroke="rgba(255,255,255,.2)" stroke-width=".3"/><line x1="30" y1="5" x2="47" y2="52" stroke="rgba(255,255,255,.2)" stroke-width=".3"/><line x1="5" y1="22" x2="55" y2="22" stroke="rgba(255,255,255,.2)" stroke-width=".3"/></svg>
+            </div>
+            <span class="card-badge">Architecture</span>
           </div>
           <div class="feat-body">
-            <span class="cat">Architecture</span>
             <h3><a href="#">The Vault Beneath the Sidewalk: A Walking Tour of Hidden 47th Street</a></h3>
-            <p>Beneath the bustling sidewalks lies a labyrinth of vaults that once held millions in uncut stones.</p>
-            <span class="byline">Marcus Rivera &#9670; 10 min</span>
+            <p>Beneath the bustling sidewalks lies a labyrinth of vaults that once held millions in uncut stones. Now, a new generation is rediscovering these subterranean treasures.</p>
+            <span class="byline">Marcus Rivera &#9670; April 8 &#9670; 10 min read</span>
           </div>
         </article>
-        <article class="feat-card fi">
-          <div class="feat-img">
-            <svg class="feat-gem" viewBox="0 0 80 80">
-              <polygon points="40,8 72,35 40,75 8,35" fill="none" stroke="#ccc" stroke-width="0.8"/>
-              <line x1="40" y1="8" x2="40" y2="75" stroke="#ddd" stroke-width="0.3" stroke-dasharray="2,2"/>
-              <line x1="8" y1="35" x2="72" y2="35" stroke="#ddd" stroke-width="0.4"/>
-            </svg>
+        <article class="feat-card fi" style="transition-delay:.1s">
+          <div class="feat-img grad-2">
+            <div class="feat-overlay">
+              <svg viewBox="0 0 60 60" class="feat-dm"><polygon points="30,8 52,30 30,55 8,30" fill="none" stroke="rgba(255,255,255,.4)" stroke-width=".6"/><line x1="30" y1="8" x2="30" y2="55" stroke="rgba(255,255,255,.15)" stroke-width=".3" stroke-dasharray="2,2"/><line x1="8" y1="30" x2="52" y2="30" stroke="rgba(255,255,255,.2)" stroke-width=".3"/></svg>
+            </div>
+            <span class="card-badge">History</span>
           </div>
           <div class="feat-body">
-            <span class="cat">History</span>
             <h3><a href="#">From Antwerp to Midtown: The Migration That Built an Empire</a></h3>
-            <p>How European refugees in the 1940s transformed a single Manhattan block into the diamond capital of the West.</p>
-            <span class="byline">Elena Vasquez &#9670; 14 min</span>
+            <p>How a wave of European refugees in the 1940s transformed a single Manhattan block into the diamond capital of the Western world.</p>
+            <span class="byline">Elena Vasquez &#9670; April 5 &#9670; 14 min read</span>
           </div>
         </article>
-        <article class="feat-card fi">
-          <div class="feat-img">
-            <svg class="feat-gem" viewBox="0 0 80 90">
-              <ellipse cx="40" cy="58" rx="22" ry="18" fill="none" stroke="#ccc" stroke-width="0.8"/>
-              <polygon points="40,12 52,28 40,42 28,28" fill="none" stroke="#ccc" stroke-width="0.8"/>
-              <line x1="28" y1="28" x2="30" y2="42" stroke="#ddd" stroke-width="0.4"/>
-              <line x1="52" y1="28" x2="50" y2="42" stroke="#ddd" stroke-width="0.4"/>
-            </svg>
+        <article class="feat-card fi" style="transition-delay:.2s">
+          <div class="feat-img grad-3">
+            <div class="feat-overlay">
+              <svg viewBox="0 0 60 70" class="feat-dm"><ellipse cx="30" cy="48" rx="18" ry="14" fill="none" stroke="rgba(255,255,255,.35)" stroke-width=".6"/><polygon points="30,10 40,24 30,36 20,24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width=".6"/></svg>
+            </div>
+            <span class="card-badge">Business</span>
           </div>
           <div class="feat-body">
-            <span class="cat">Business</span>
             <h3><a href="#">Diamond Dogs: The Rise of Social Media Jewelers on 47th</a></h3>
-            <p>A new generation builds empires on Instagram and TikTok from their booths in the exchanges.</p>
-            <span class="byline">David Kim &#9670; 7 min</span>
+            <p>A new generation of dealers is building empires on Instagram and TikTok from their booths in the Diamond District exchanges.</p>
+            <span class="byline">David Kim &#9670; April 2 &#9670; 7 min read</span>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ MORE STORIES ============ -->
-  <section class="more" id="culture">
+  <!-- ============ PHOTO ESSAY ============ -->
+  <section class="photo-essay" id="photo-essay">
     <div class="wrap">
       <h2 class="sec-head">
         <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-        From the Block
+        Photo Essay
         <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
       </h2>
-      <div class="story-list">
-        <a href="#" class="story-row fi">
-          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-          <div class="story-body">
-            <h4>The Women of 47th Street: Breaking Into a Patriarchal Trade</h4>
-            <span class="byline">Culture &#9670; March 21 &#9670; 13 min</span>
+      <div class="photo-grid">
+        <div class="photo-card photo-wide fi">
+          <div class="photo-img grad-4">
+            <div class="photo-overlay">
+              <svg viewBox="0 0 80 80" class="photo-dm"><polygon points="40,5 75,30 65,72 15,72 5,30" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/><line x1="40" y1="5" x2="15" y2="72" stroke="rgba(255,255,255,.15)" stroke-width=".3"/><line x1="40" y1="5" x2="65" y2="72" stroke="rgba(255,255,255,.15)" stroke-width=".3"/><line x1="5" y1="30" x2="75" y2="30" stroke="rgba(255,255,255,.15)" stroke-width=".3"/></svg>
+            </div>
           </div>
-          <span class="arrow">&#8594;</span>
-        </a>
-        <a href="#" class="story-row fi">
-          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-          <div class="story-body">
-            <h4>Mazal u'Bracha: The Yiddish Phrase That Closes Every Deal</h4>
-            <span class="byline">Language &#9670; March 18 &#9670; 5 min</span>
+          <div class="photo-caption">
+            <h3><a href="#">Faces of the Block: Portraits From 47th Street</a></h3>
+            <p>A visual journey through the dealers, cutters, setters, and dreamers who make the Diamond District pulse with life.</p>
+            <span class="byline">Photographs by Ana Torres &#9670; 24 images</span>
           </div>
-          <span class="arrow">&#8594;</span>
-        </a>
-        <a href="#" class="story-row fi">
-          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-          <div class="story-body">
-            <h4>How De Beers Lost Its Grip and 47th Street Kept Its Soul</h4>
-            <span class="byline">Analysis &#9670; March 14 &#9670; 16 min</span>
+        </div>
+        <div class="photo-card fi" style="transition-delay:.1s">
+          <div class="photo-img grad-5">
+            <div class="photo-overlay">
+              <svg viewBox="0 0 40 40" class="photo-dm-sm"><polygon points="20,3 37,20 20,37 3,20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/></svg>
+            </div>
           </div>
-          <span class="arrow">&#8594;</span>
-        </a>
-        <a href="#" class="story-row fi">
-          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-          <div class="story-body">
-            <h4>Night Shift: The Armed Couriers Who Move Millions After Dark</h4>
-            <span class="byline">Longform &#9670; March 10 &#9670; 18 min</span>
+          <div class="photo-caption">
+            <h3><a href="#">The Tools of the Trade</a></h3>
+            <span class="byline">12 images</span>
           </div>
-          <span class="arrow">&#8594;</span>
-        </a>
-        <a href="#" class="story-row fi">
-          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-          <div class="story-body">
-            <h4>The Loupe Economy: Why a $30 Tool Still Decides Million-Dollar Deals</h4>
-            <span class="byline">Trade &#9670; March 6 &#9670; 8 min</span>
+        </div>
+        <div class="photo-card fi" style="transition-delay:.15s">
+          <div class="photo-img grad-6">
+            <div class="photo-overlay">
+              <svg viewBox="0 0 40 40" class="photo-dm-sm"><polygon points="20,3 37,20 20,37 3,20" fill="none" stroke="rgba(255,255,255,.3)" stroke-width=".5"/></svg>
+            </div>
           </div>
-          <span class="arrow">&#8594;</span>
-        </a>
+          <div class="photo-caption">
+            <h3><a href="#">After Hours on 47th</a></h3>
+            <span class="byline">18 images</span>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAMOND RULE ============ -->
+  <div class="dm-rule"><svg class="dm dm-md" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg></div>
+
+  <!-- ============ MORE STORIES ============ -->
+  <section class="more" id="culture">
+    <div class="wrap more-layout">
+      <div class="more-main">
+        <h2 class="sec-head">
+          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+          From the Block
+          <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+        </h2>
+        <div class="story-list">
+          <a href="#" class="story-row fi">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <div class="story-body">
+              <h4>The Women of 47th Street: Breaking Into a Patriarchal Trade</h4>
+              <p class="story-excerpt">Three generations of women dealers share what it takes to earn respect in the industry's most exclusive spaces.</p>
+              <span class="byline">Culture &#9670; March 21 &#9670; 13 min read</span>
+            </div>
+            <span class="arrow">&#8594;</span>
+          </a>
+          <a href="#" class="story-row fi" style="transition-delay:.05s">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <div class="story-body">
+              <h4>Mazal u'Bracha: The Yiddish Phrase That Closes Every Deal</h4>
+              <span class="byline">Language &#9670; March 18 &#9670; 5 min read</span>
+            </div>
+            <span class="arrow">&#8594;</span>
+          </a>
+          <a href="#" class="story-row fi" style="transition-delay:.1s">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <div class="story-body">
+              <h4>How De Beers Lost Its Grip and 47th Street Kept Its Soul</h4>
+              <span class="byline">Analysis &#9670; March 14 &#9670; 16 min read</span>
+            </div>
+            <span class="arrow">&#8594;</span>
+          </a>
+          <a href="#" class="story-row fi" style="transition-delay:.15s">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <div class="story-body">
+              <h4>Night Shift: The Armed Couriers Who Move Millions After Dark</h4>
+              <span class="byline">Longform &#9670; March 10 &#9670; 18 min read</span>
+            </div>
+            <span class="arrow">&#8594;</span>
+          </a>
+          <a href="#" class="story-row fi" style="transition-delay:.2s">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <div class="story-body">
+              <h4>The Loupe Economy: Why a $30 Tool Still Decides Million-Dollar Deals</h4>
+              <span class="byline">Trade &#9670; March 6 &#9670; 8 min read</span>
+            </div>
+            <span class="arrow">&#8594;</span>
+          </a>
+        </div>
+      </div>
+      <!-- SIDEBAR -->
+      <aside class="more-aside">
+        <div class="aside-section fi">
+          <h4 class="aside-head">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            Editor's Picks
+          </h4>
+          <ul class="aside-list">
+            <li><a href="#">The $5 Million Handshake: How Trust Still Outperforms Contracts</a></li>
+            <li><a href="#">Inside the GIA Grading Lab: Precision at a Molecular Level</a></li>
+            <li><a href="#">What Happens When the Last Cutter Retires?</a></li>
+          </ul>
+        </div>
+        <div class="aside-section fi" style="transition-delay:.1s">
+          <h4 class="aside-head">
+            <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            Audio
+          </h4>
+          <div class="aside-audio">
+            <div class="audio-item">
+              <div class="audio-icon">&#9654;</div>
+              <div>
+                <strong>The 47th Street Podcast</strong>
+                <span>Ep. 23: Lab vs. Natural &mdash; The Debate</span>
+              </div>
+            </div>
+            <div class="audio-item">
+              <div class="audio-icon">&#9654;</div>
+              <div>
+                <strong>Voices From the Block</strong>
+                <span>Mini-doc: A Day in the Life</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
   <!-- ============ EDITORIAL QUOTE ============ -->
   <section class="quote-block" id="people">
     <div class="wrap fi">
-      <svg class="quote-gem" viewBox="0 0 60 60">
-        <polygon points="30,3 57,22 48,55 12,55 3,22" fill="none" stroke="#bbb" stroke-width="0.7"/>
-        <line x1="30" y1="3" x2="12" y2="55" stroke="#ccc" stroke-width="0.3"/>
-        <line x1="30" y1="3" x2="48" y2="55" stroke="#ccc" stroke-width="0.3"/>
-        <line x1="3" y1="22" x2="57" y2="22" stroke="#ccc" stroke-width="0.3"/>
+      <svg class="quote-gem" viewBox="0 0 100 110" aria-label="Diamond">
+        <defs>
+          <linearGradient id="qg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d5d5d5"/><stop offset="100%" stop-color="#bbb"/>
+          </linearGradient>
+        </defs>
+        <polygon points="50,5 90,35 78,95 22,95 10,35" fill="none" stroke="url(#qg1)" stroke-width=".8"/>
+        <line x1="50" y1="5" x2="22" y2="95" stroke="#ccc" stroke-width=".3"/>
+        <line x1="50" y1="5" x2="78" y2="95" stroke="#ccc" stroke-width=".3"/>
+        <line x1="10" y1="35" x2="90" y2="35" stroke="#ccc" stroke-width=".3"/>
+        <line x1="10" y1="35" x2="78" y2="95" stroke="#ddd" stroke-width=".2"/>
+        <line x1="90" y1="35" x2="22" y2="95" stroke="#ddd" stroke-width=".2"/>
+        <line x1="50" y1="5" x2="50" y2="95" stroke="#ddd" stroke-width=".2" stroke-dasharray="2,2"/>
       </svg>
-      <blockquote>"47th Street isn't just an address &mdash; it's a covenant. Every stone that changes hands here carries the weight of trust built over generations."</blockquote>
+      <blockquote>&ldquo;47th Street isn't just an address &mdash; it's a covenant. Every stone that changes hands here carries the weight of trust built over generations.&rdquo;</blockquote>
       <cite>
+        <span class="cite-rule"></span>
         <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
         David Abramowitz, Editor-in-Chief
+        <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+        <span class="cite-rule"></span>
       </cite>
     </div>
   </section>
@@ -305,19 +480,31 @@
       </h2>
       <div class="op-grid">
         <article class="op-card fi">
-          <svg class="dm dm-sm op-dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+          <div class="op-top">
+            <svg class="dm dm-sm op-dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="op-label">Op-Ed</span>
+          </div>
           <h4><a href="#">The District Doesn't Need Saving &mdash; It Needs Succession Planning</a></h4>
-          <span class="byline">Miriam Heller &#9670; Op-Ed</span>
+          <p>The average age of a booth owner on 47th is 62. Without a generational transfer strategy, the district faces an existential crisis within a decade.</p>
+          <span class="byline">Miriam Heller</span>
         </article>
-        <article class="op-card fi">
-          <svg class="dm dm-sm op-dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+        <article class="op-card fi" style="transition-delay:.1s">
+          <div class="op-top">
+            <svg class="dm dm-sm op-dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="op-label">Op-Ed</span>
+          </div>
           <h4><a href="#">Lab-Grown Diamonds Are Not the Enemy. Complacency Is.</a></h4>
-          <span class="byline">Arjun Patel &#9670; Op-Ed</span>
+          <p>The natural diamond industry's greatest threat isn't synthetic stones. It's the refusal to articulate why provenance and rarity still matter.</p>
+          <span class="byline">Arjun Patel</span>
         </article>
-        <article class="op-card fi">
-          <svg class="dm dm-sm op-dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+        <article class="op-card fi" style="transition-delay:.2s">
+          <div class="op-top">
+            <svg class="dm dm-sm op-dm" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+            <span class="op-label">Op-Ed</span>
+          </div>
           <h4><a href="#">Why Every Jeweler on 47th Should Learn to Code</a></h4>
-          <span class="byline">Tanya Brooks &#9670; Op-Ed</span>
+          <p>The next generation of diamond dealers won't just need a loupe. They'll need APIs, data feeds, and an understanding of algorithmic pricing.</p>
+          <span class="byline">Tanya Brooks</span>
         </article>
       </div>
     </div>
@@ -327,20 +514,23 @@
   <section class="newsletter" id="subscribe">
     <div class="wrap">
       <div class="nl-box fi">
-        <svg class="nl-gem" viewBox="0 0 80 80">
-          <polygon points="40,5 75,30 65,72 15,72 5,30" fill="none" stroke="#bbb" stroke-width="0.7"/>
-          <line x1="40" y1="5" x2="15" y2="72" stroke="#ccc" stroke-width="0.3"/>
-          <line x1="40" y1="5" x2="65" y2="72" stroke="#ccc" stroke-width="0.3"/>
-          <line x1="5" y1="30" x2="75" y2="30" stroke="#ccc" stroke-width="0.3"/>
-          <line x1="5" y1="30" x2="65" y2="72" stroke="#ddd" stroke-width="0.2"/>
-          <line x1="75" y1="30" x2="15" y2="72" stroke="#ddd" stroke-width="0.2"/>
+        <svg class="nl-gem" viewBox="0 0 80 90" aria-label="Diamond">
+          <polygon points="40,5 75,30 65,78 15,78 5,30" fill="none" stroke="#bbb" stroke-width=".6"/>
+          <line x1="40" y1="5" x2="15" y2="78" stroke="#ccc" stroke-width=".2"/>
+          <line x1="40" y1="5" x2="65" y2="78" stroke="#ccc" stroke-width=".2"/>
+          <line x1="5" y1="30" x2="75" y2="30" stroke="#ccc" stroke-width=".2"/>
         </svg>
         <h3>The 47th Street Brief</h3>
-        <p>Weekly market intelligence, insider stories, and district updates. Every Tuesday.</p>
-        <form class="nl-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed &#9670;';this.querySelector('input').disabled=true;">
+        <p>Weekly market intelligence, insider stories, and district updates delivered every Tuesday to 12,000+ industry professionals.</p>
+        <form class="nl-form" id="nlForm">
           <input type="email" placeholder="you@email.com" required />
           <button type="submit">Subscribe &#9670;</button>
         </form>
+        <div class="nl-trust">
+          <span>&#9670; Free</span>
+          <span>&#9670; No spam</span>
+          <span>&#9670; Unsubscribe anytime</span>
+        </div>
       </div>
     </div>
   </section>
@@ -385,7 +575,7 @@
         </div>
       </div>
       <div class="ft-bottom">
-        <span>&copy; 2026 The 47th Street. New York, NY.</span>
+        <span>&copy; 2026 The 47th Street. All rights reserved. New York, NY.</span>
         <span class="ft-tag">
           <svg class="dm dm-xs" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
           Where Every Stone Has a Story
@@ -395,6 +585,11 @@
     </div>
   </footer>
 
+  <!-- Back to top -->
+  <button class="btt" id="btt" aria-label="Back to top">
+    <svg viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
+  </button>
+
   <!-- Background floating diamonds -->
   <div class="bg-gems" aria-hidden="true">
     <svg class="bg-g bg-g1" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
@@ -403,8 +598,6 @@
     <svg class="bg-g bg-g4" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
     <svg class="bg-g bg-g5" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
     <svg class="bg-g bg-g6" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-    <svg class="bg-g bg-g7" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
-    <svg class="bg-g bg-g8" viewBox="0 0 10 10"><polygon points="5,0 10,5 5,10 0,5"/></svg>
   </div>
 
   <script type="module" src="./frontend.js"></script>
