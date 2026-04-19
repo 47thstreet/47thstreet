@@ -1,14 +1,46 @@
-// ---- Scroll-triggered fade-in with stagger support ----
+// =============================================
+// 47th Street — Frontend Interactions
+// Animated per Emil Kowalski's design engineering principles:
+// - Custom easing curves (cubic-bezier, not generic ease)
+// - Staggered reveals (30-80ms between items)
+// - clip-path image reveals via WAAPI
+// - Active press feedback on interactive elements
+// - prefers-reduced-motion support
+// - Performance: transform + opacity only
+// =============================================
+
+const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ---- Scroll-triggered fade-in ----
 const obs = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
         e.target.classList.add("vis");
+
+        // WAAPI clip-path reveal for images inside this element
+        if (!prefersReduced) {
+          const imgs = e.target.querySelectorAll(".feat-img, .photo-img");
+          imgs.forEach((img) => {
+            img.animate(
+              [
+                { clipPath: "inset(0 0 8% 0)" },
+                { clipPath: "inset(0 0 0% 0)" },
+              ],
+              {
+                duration: 700,
+                fill: "forwards",
+                easing: "cubic-bezier(0.77, 0, 0.175, 1)",
+              }
+            );
+          });
+        }
+
         obs.unobserve(e.target);
       }
     });
   },
-  { threshold: 0.06, rootMargin: "0px 0px -40px 0px" }
+  { threshold: 0.06, rootMargin: "0px 0px -50px 0px" }
 );
 document.querySelectorAll(".fi").forEach((el) => obs.observe(el));
 
@@ -17,24 +49,21 @@ const progressBar = document.getElementById("progressBar");
 function updateProgress() {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = progress + "%";
+  if (docHeight > 0) {
+    progressBar.style.width = ((scrollTop / docHeight) * 100) + "%";
+  }
 }
 
 // ---- Back to top button ----
 const btt = document.getElementById("btt");
 function updateBtt() {
-  if (window.scrollY > 600) {
-    btt.classList.add("show");
-  } else {
-    btt.classList.remove("show");
-  }
+  btt.classList.toggle("show", window.scrollY > 600);
 }
 btt.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// Combined scroll handler
+// Combined scroll handler (rAF throttled)
 let ticking = false;
 window.addEventListener("scroll", () => {
   if (!ticking) {
@@ -45,7 +74,7 @@ window.addEventListener("scroll", () => {
     });
     ticking = true;
   }
-});
+}, { passive: true });
 
 // ---- Search toggle ----
 const searchToggle = document.getElementById("searchToggle");
@@ -54,9 +83,20 @@ const searchClose = document.getElementById("searchClose");
 const searchInput = document.getElementById("searchInput");
 
 searchToggle.addEventListener("click", () => {
+  const opening = !searchBox.classList.contains("open");
   searchBox.classList.toggle("open");
-  if (searchBox.classList.contains("open")) {
+  if (opening) {
     searchInput.focus();
+    // WAAPI reveal
+    if (!prefersReduced) {
+      searchBox.animate(
+        [
+          { opacity: 0, transform: "translateY(-4px)" },
+          { opacity: 1, transform: "translateY(0)" },
+        ],
+        { duration: 200, easing: "cubic-bezier(0.23, 1, 0.32, 1)", fill: "forwards" }
+      );
+    }
   }
 });
 searchClose.addEventListener("click", () => {
@@ -71,20 +111,52 @@ const navInner = document.getElementById("navInner");
 menuBtn.addEventListener("click", () => {
   menuBtn.classList.toggle("open");
   navInner.classList.toggle("open");
+
+  // Stagger nav links on open
+  if (navInner.classList.contains("open") && !prefersReduced) {
+    navInner.querySelectorAll("a").forEach((a, i) => {
+      a.animate(
+        [
+          { opacity: 0, transform: "translateY(-6px)" },
+          { opacity: 1, transform: "translateY(0)" },
+        ],
+        {
+          duration: 250,
+          delay: i * 40,
+          easing: "cubic-bezier(0.23, 1, 0.32, 1)",
+          fill: "forwards",
+        }
+      );
+    });
+  }
 });
 
-// ---- Newsletter form ----
+// ---- Newsletter form with feedback ----
 const nlForm = document.getElementById("nlForm");
 nlForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const btn = nlForm.querySelector("button");
   const input = nlForm.querySelector("input");
+
+  // Scale press feedback
+  if (!prefersReduced) {
+    btn.animate(
+      [
+        { transform: "scale(0.95)" },
+        { transform: "scale(1.02)" },
+        { transform: "scale(1)" },
+      ],
+      { duration: 300, easing: "cubic-bezier(0.23, 1, 0.32, 1)" }
+    );
+  }
+
+  nlForm.classList.add("submitted");
   btn.innerHTML = "Subscribed &#9670;";
   btn.style.background = "#0a7c42";
   btn.style.borderColor = "#0a7c42";
   input.disabled = true;
   input.value = "";
-  input.placeholder = "You're in!";
+  input.placeholder = "You\u2019re in!";
 });
 
 // ---- Smooth scroll ----
@@ -96,7 +168,6 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     if (t) {
       e.preventDefault();
       t.scrollIntoView({ behavior: "smooth", block: "start" });
-      // close mobile menu
       if (menuBtn.classList.contains("open")) {
         menuBtn.classList.remove("open");
         navInner.classList.remove("open");
@@ -104,3 +175,22 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     }
   });
 });
+
+// ---- Hero image sparkle on mouse move (decorative only) ----
+const heroImg = document.querySelector(".hero-img");
+if (heroImg && !prefersReduced) {
+  const sparkle = heroImg.querySelector(".sparkle-anim");
+  if (sparkle) {
+    heroImg.addEventListener("mousemove", (e) => {
+      const rect = heroImg.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+      sparkle.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    heroImg.addEventListener("mouseleave", () => {
+      sparkle.style.transform = "";
+      sparkle.style.transition = "transform 400ms cubic-bezier(0.23, 1, 0.32, 1)";
+      setTimeout(() => { sparkle.style.transition = ""; }, 400);
+    });
+  }
+}

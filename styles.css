@@ -23,6 +23,10 @@
   --body:   "Noto Serif", Georgia, serif;
   --elegant:"Cormorant Garamond", Georgia, serif;
   --col:    1240px;
+  /* Emil Kowalski custom easing curves */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 html { scroll-behavior:smooth; font-size:16px; }
@@ -109,7 +113,7 @@ a { color:inherit; text-decoration:none; }
 .mast-title {
   font-family:var(--serif); font-size:3rem; font-weight:900;
   letter-spacing:-.02em; line-height:1; color:var(--ink);
-  transition:color .2s;
+  transition:color 150ms var(--ease-out);
 }
 .mast-title:hover { color:var(--dark); }
 .mast-sub {
@@ -129,7 +133,7 @@ a { color:inherit; text-decoration:none; }
   font-family:var(--sans); font-size:.58rem; font-weight:700;
   letter-spacing:.12em; text-transform:uppercase;
   background:var(--ink); color:var(--white);
-  padding:.45rem 1.1rem; transition:all .2s;
+  padding:.45rem 1.1rem; transition:background 160ms var(--ease-out), transform 160ms var(--ease-out);
 }
 .btn-sub:hover { background:var(--dark); }
 
@@ -659,20 +663,127 @@ footer {
   width:40px; height:40px; border:1.5px solid var(--ink);
   background:var(--white); cursor:pointer;
   display:flex; align-items:center; justify-content:center;
-  opacity:0; transform:translateY(10px);
-  transition:all .3s; box-shadow:0 2px 8px rgba(0,0,0,.1);
+  opacity:0; transform:translateY(10px) scale(0.95);
+  transition:opacity 200ms var(--ease-out), transform 200ms var(--ease-out),
+             background 160ms var(--ease-out);
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
-.btt svg { width:12px; height:12px; fill:var(--ink); transform:rotate(-90deg); }
-.btt.show { opacity:1; transform:translateY(0); }
-.btt:hover { background:var(--ink); }
-.btt:hover svg { fill:var(--white); }
+.btt svg { width:12px; height:12px; fill:var(--ink); transform:rotate(-90deg); transition:fill 160ms var(--ease-out); }
+.btt.show { opacity:1; transform:translateY(0) scale(1); }
+.btt:active { transform:translateY(0) scale(0.92); }
 
-/* ---- animations ---- */
+/* ---- animations (Emil Kowalski principles) ---- */
+
+/* Scroll-reveal: custom ease-out, start from scale(0.97) not scale(0) */
 .fi {
-  opacity:0; transform:translateY(18px);
-  transition:opacity .6s ease, transform .6s ease;
+  opacity:0; transform:translateY(12px) scale(0.98);
+  transition:opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
 }
-.fi.vis { opacity:1; transform:translateY(0); }
+.fi.vis { opacity:1; transform:translateY(0) scale(1); }
+
+/* Clip-path image reveal on scroll */
+.feat-img, .photo-img, .hero-img {
+  clip-path:inset(0 0 8% 0);
+  transition:clip-path 600ms var(--ease-in-out);
+}
+.fi.vis .feat-img,
+.fi.vis .photo-img,
+.fi.vis .hero-img,
+.fi.vis.hero-img { clip-path:inset(0 0 0 0); }
+
+/* All interactive elements: active press feedback */
+.btn-sub, .nav-inner a, .story-row, .feat-card, .op-card,
+.photo-card, .audio-item, .nl-form button, .btt, .search-btn,
+.hl-item h3 a, .feat-body h3 a, .op-card h4 a, .story-body h4,
+.aside-list a, .most-read a, .ft-col a {
+  transition-timing-function:var(--ease-out);
+}
+
+/* Button/card press feedback - scale(0.97) on :active */
+@media (hover:hover) and (pointer:fine) {
+  .btn-sub:active { transform:scale(0.97); }
+  .nl-form button:active { transform:scale(0.97); }
+  .search-btn:active { transform:scale(0.92); }
+  .btt:hover { background:var(--ink); }
+  .btt:hover svg { fill:var(--white); }
+
+  .feat-card { transition:transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out); }
+  .feat-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+  .feat-card:active { transform:translateY(-1px) scale(0.99); }
+
+  .op-card { transition:transform 200ms var(--ease-out), border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out); }
+  .op-card::before { transition:transform 250ms var(--ease-out); }
+  .op-card:hover { transform:translateY(-3px); border-color:var(--dark); box-shadow:0 4px 16px rgba(0,0,0,.08); }
+  .op-card:active { transform:translateY(-1px) scale(0.99); }
+
+  .photo-card { transition:transform 200ms var(--ease-out); }
+  .photo-card:hover { transform:translateY(-3px); }
+  .photo-card:active { transform:translateY(0) scale(0.99); }
+
+  .story-row { transition:background 150ms var(--ease-out), padding 200ms var(--ease-out); }
+  .story-row:hover .arrow { transform:translateX(4px); }
+
+  .audio-item { transition:border-color 150ms var(--ease-out), background 150ms var(--ease-out), transform 150ms var(--ease-out); }
+  .audio-item:hover { transform:translateY(-1px); }
+  .audio-item:active { transform:translateY(0) scale(0.99); }
+
+  /* Nav link underline - faster, punchier */
+  .nav-inner a::after { transition:transform 180ms var(--ease-out); }
+
+  /* Feat overlay diamond scale */
+  .feat-dm { transition:opacity 250ms var(--ease-out), transform 250ms var(--ease-out); }
+
+  /* Link hover transitions */
+  .hl-item h3 a, .feat-body h3 a, .story-body h4,
+  .aside-list a, .most-read a, .ft-col a { transition:color 150ms var(--ease-out); }
+}
+
+/* Newsletter submit success animation */
+.nl-form.submitted button {
+  background:var(--green); border-color:var(--green);
+  transition:background 300ms var(--ease-out), border-color 300ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.nl-form.submitted input {
+  opacity:.6; transition:opacity 300ms var(--ease-out);
+}
+
+/* Sparkle - slower, more natural */
+.sparkle-anim {
+  animation:sparkle 5s var(--ease-in-out) infinite;
+}
+@keyframes sparkle {
+  0%,100% { opacity:.1; }
+  50% { opacity:.45; }
+}
+
+/* Ticker - use linear (constant motion = linear per Emil) */
+.ticker-track { animation:scroll 50s linear infinite; }
+
+/* Progress bar - instant feel */
+.progress-bar { transition:width 80ms linear; }
+
+/* Heading reveal stagger (CSS-only for initial load) */
+.mast-title {
+  animation:headReveal 600ms var(--ease-out) both;
+}
+@keyframes headReveal {
+  from { opacity:0; transform:translateY(6px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* Reduced motion: keep fades, remove transforms */
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration:0.2s !important;
+    transition-duration:0.15s !important;
+  }
+  .fi { transform:none; }
+  .fi.vis { transform:none; }
+  .feat-img, .photo-img, .hero-img { clip-path:none; }
+  .sparkle-anim { animation:none; }
+  .bg-g { animation:none; }
+  .ticker-track { animation-duration:100s !important; }
+}
 
 /* ---- responsive ---- */
 @media (max-width:1024px) {
