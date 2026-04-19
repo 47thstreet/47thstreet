@@ -238,10 +238,33 @@
         <a href="#subscribe">The Brief</a>
       </div>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </header>
+
+  <!-- Mobile drawer backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Mobile drawer -->
+  <nav class="drawer" id="drawer" aria-label="Mobile navigation" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <span class="drawer-title">Menu</span>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="#features">Features</a>
+      <a href="#market">Market</a>
+      <a href="#culture">Culture</a>
+      <a href="#people">People</a>
+      <a href="#opinion">Opinion</a>
+      <a href="#photo-essay">Photo</a>
+      <a href="#subscribe">The Brief</a>
+    </div>
+    <div class="drawer-footer">
+      <a href="#subscribe" class="drawer-subscribe">Subscribe &#9670;</a>
+    </div>
+  </nav>
 
   <main id="main-content">
 
@@ -320,7 +343,7 @@
         <div class="hero-cover-text fi" style="transition-delay:.15s">
           <span class="cat">Cover Story</span>
           <h1><a href="/article/the-last-master-cutter">The Last<br/>Master Cutter</a></h1>
-          <p class="hero-sub">Inside the Workshop Where<br/>Rough Becomes Radiance</p>
+          <p class="hero-sub"><a href="/article/the-last-master-cutter">Inside the Workshop Where<br/>Rough Becomes Radiance</a></p>
           <div class="hero-rule"><span></span><svg class="dm dm-xs" viewBox="0 0 10 10" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg><span></span></div>
           <p class="hero-deck"><span class="drop-cap">A</span>t 78, Moshe Friedman still cuts stones by feel. His booth on the fourth floor of 15 West 47th has produced some of the most celebrated diamonds of the last half-century. But with no apprentice in sight, a tradition may vanish with his retirement.</p>
           <span class="byline">By Sarah Chen &#9670; April 15, 2026 &#9670; 12 min read</span>

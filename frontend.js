@@ -98,30 +98,80 @@ if (searchToggle && searchBox) {
   });
 }
 
-// ---- Mobile menu ----
+// ---- Mobile drawer ----
 const menuBtn = document.getElementById("menuBtn");
-const navInner = document.getElementById("navInner");
+const drawer = document.getElementById("drawer");
+const drawerClose = document.getElementById("drawerClose");
+const drawerBackdrop = document.getElementById("drawerBackdrop");
 
-if (menuBtn && navInner) {
+function openDrawer() {
+  document.body.classList.add("drawer-open");
+  menuBtn.classList.add("open");
+  menuBtn.setAttribute("aria-expanded", "true");
+  drawerClose.focus();
+  if (!prefersReduced) {
+    drawer.querySelectorAll(".drawer-links a").forEach((a, i) => {
+      a.animate(
+        [{ opacity: 0, transform: "translateX(16px)" }, { opacity: 1, transform: "translateX(0)" }],
+        { duration: 250, delay: 80 + i * 40, easing: "cubic-bezier(0.32, 0.72, 0, 1)", fill: "forwards" }
+      );
+    });
+  }
+}
+
+function closeDrawer() {
+  document.body.classList.remove("drawer-open");
+  menuBtn.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded", "false");
+  menuBtn.focus();
+}
+
+if (menuBtn && drawer && drawerBackdrop) {
   menuBtn.addEventListener("click", () => {
-    menuBtn.classList.toggle("open");
-    navInner.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", navInner.classList.contains("open"));
-    if (navInner.classList.contains("open") && !prefersReduced) {
-      navInner.querySelectorAll("a").forEach((a, i) => {
-        a.animate(
-          [{ opacity: 0, transform: "translateY(-6px)" }, { opacity: 1, transform: "translateY(0)" }],
-          { duration: 250, delay: i * 40, easing: "cubic-bezier(0.23, 1, 0.32, 1)", fill: "forwards" }
-        );
-      });
+    if (document.body.classList.contains("drawer-open")) {
+      closeDrawer();
+    } else {
+      openDrawer();
     }
   });
-  document.addEventListener("click", (e) => {
-    if (navInner.classList.contains("open") && !e.target.closest(".masthead")) {
-      menuBtn.classList.remove("open");
-      navInner.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
+
+  drawerClose.addEventListener("click", closeDrawer);
+  drawerBackdrop.addEventListener("click", closeDrawer);
+
+  // Escape key closes drawer
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.body.classList.contains("drawer-open")) {
+      closeDrawer();
     }
+  });
+
+  // Focus trap inside drawer when open
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab" || !document.body.classList.contains("drawer-open")) return;
+    const focusable = drawer.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  // Close drawer when a link inside it is clicked
+  drawer.querySelectorAll(".drawer-links a, .drawer-subscribe").forEach((a) => {
+    a.addEventListener("click", () => {
+      closeDrawer();
+    });
   });
 }
 
@@ -170,10 +220,8 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     if (t) {
       e.preventDefault();
       t.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (menuBtn && menuBtn.classList.contains("open")) {
-        menuBtn.classList.remove("open");
-        navInner.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
+      if (document.body.classList.contains("drawer-open")) {
+        closeDrawer();
       }
     }
   });
